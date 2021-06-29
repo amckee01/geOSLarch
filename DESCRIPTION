@@ -1,16 +1,23 @@
 Package: geOSLarch
-Title: What the Package Does (One Line, Title Case)
+Title: Functions for OSL Bioturbation and Time Percentage Analysis per McKee & Frederick (n.d.)
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Arlo",
+           family = "McKee",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
+           email = "arlomckee@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Description: McKee & Frederick (n.d.) proposed a set of analytical tools for studying single-grain optically-stimulated luminescence dates in bioturbated sediments. The functions in this package perform the workflow outlined in that paper. In general, these tools provide a processing workflow for estimating the degree of bioturbation through a soil profile, and provide estimates of how much of the sediment at a given depth is younger than a proposed age.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: 
+    RColorBrewer,
+    ggplot2,
+    stats,
+    utils
