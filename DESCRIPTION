@@ -1,5 +1,5 @@
 Package: geOSLarch
-Title: Functions for OSL Bioturbation and Time Percentage Analysis per McKee & Frederick (n.d.)
+Title: Functions for OSL Bioturbation and Time Percentage Analysis
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Arlo",
