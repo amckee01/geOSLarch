@@ -177,4 +177,31 @@ single.osl <- function(df,
 }
 
 
-
+#' Check if grain ages are within a given standard deviation of a date
+#'
+#' @param df data frame
+#' @param AgeField string, name of the Sample Age field
+#' @param SDField string, name of the Sample Standard Deviation field
+#' @param checkAge numeric, age of interest to check grain ages against
+#' @param confidence numeric, number of standard deviations to check the grain age against
+#'
+#' @return
+#' @export
+#'
+#' @examples
+checkGrainAge <- function(df, AgeField = 'Age', SDField = 'SD', checkAge, confidence = 2){
+  checkDF <- data.frame(checkAge = factor())
+  for(i in 1:length(df[,AgeField])){
+    if(subDF[i,AgeField]-confidence*subDF[i,SDField] <= checkAge){
+      ck <- paste('Younger than..', checkAge, sep = ' ')
+    }else if(subDF[i,AgeField]+confidence*subDF[i,SDField] <= checkAge){
+      ck <- paste('Older than..', checkAge, sep = ' ')
+    }else{ck <- paste('Within', confidence, "SD of..", checkAge, sep = ' ')
+    }
+    tempDF <- data.frame(checkAge = ck)
+    checkDF <- rbind(checkDF, tempDF)
+  }
+  outDF <- cbind(df, checkDF)
+  outDF$checkAge <- as.factor(outDF$checkAge)
+  return(outDF)
+}
