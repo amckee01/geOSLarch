@@ -18,7 +18,7 @@ checkGrainAge(df, AgeField = "Age", SDField = "SD", checkAge, confidence = 2)
 \item{confidence}{numeric, number of standard deviations to check the grain age against}
 }
 \value{
-
+original dataframe with checkAge factor field added
 }
 \description{
 Check if grain ages are within a given standard deviation of a date

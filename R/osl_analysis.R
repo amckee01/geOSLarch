@@ -185,16 +185,16 @@ single.osl <- function(df,
 #' @param checkAge numeric, age of interest to check grain ages against
 #' @param confidence numeric, number of standard deviations to check the grain age against
 #'
-#' @return
+#' @return original dataframe with checkAge factor field added
 #' @export
 #'
 #' @examples
 checkGrainAge <- function(df, AgeField = 'Age', SDField = 'SD', checkAge, confidence = 2){
   checkDF <- data.frame(checkAge = factor())
   for(i in 1:length(df[,AgeField])){
-    if(subDF[i,AgeField]-confidence*subDF[i,SDField] <= checkAge){
+    if(df[i,AgeField]-confidence*df[i,SDField] <= checkAge){
       ck <- paste('Younger than..', checkAge, sep = ' ')
-    }else if(subDF[i,AgeField]+confidence*subDF[i,SDField] <= checkAge){
+    }else if(df[i,AgeField]+confidence*df[i,SDField] <= checkAge){
       ck <- paste('Older than..', checkAge, sep = ' ')
     }else{ck <- paste('Within', confidence, "SD of..", checkAge, sep = ' ')
     }
